@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Event Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            body {
+                background:  #D0D3D4;
+                overflow: hidden;
+            }
+
+            .header {
+                background: rgb(2,0,36);
+                background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(12,12,123,1) 0%, rgba(0,212,255,1) 50%, rgba(12,12,123,1) 100%);
+                width: 1550px;
+                height: 100px;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            #logo {
+                width: 280px;
+                height: 80px;
+                margin: 10px 10px ;
+            }
+
+            .login {
+                max-width: 440px;
+                padding: 0 20px;
+                margin: 100px auto;
+            }
+            .loginWrapper {
+                width: 100%;
+                background: #fff;
+                border-radius: 5px;
+            }
+
+            .loginWrapper .loginTitle {
+                line-height: 90px;
+                background: #5DADE2;
+                text-align: center;
+                border-radius: 5px 5px 0 0;
+                color: #fff;
+                font-size: 25px;
+                font-weight: 600;
+            }
+
+            .loginWrapper form {
+                padding: 30px 25px 25px 25px;
+            }
+
+            .loginWrapper form .row {
+                height: 45px;
+                margin-bottom: 15px;
+                position: relative;
+            }
+
+            .loginWrapper form .row input{
+                height: 100%;
+                width: 100%;
+                outline: none;
+                padding-left: 60px;
+                border-radius: 5px;
+                border: 1px solid lightgray;
+                font-size: 16px;
+                transition: all 0.3s ease;
+            }
+
+            form .row input:focus {
+                border-color: #5DADE2;
+                box-shadow: inset 0px 0px 2px 2px rgba(26, 188, 156, 0.25);
+            }
+
+            .loginWrapper form .row i {
+                position: absolute;
+                width: 47px;
+                height: 100%;
+                color: #2874A6;
+                font-size: 18px;
+                background:#5DADE2;
+                border: 1px solid #5DADE2;
+                border-radius: 5px 0 0 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .loginWrapper form .pass{
+                margin: -8px 0 12px 0;
+            }
+
+            .loginWrapper form .pass a {
+                color: #5DADE2;
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+            .loginWrapper form .pass a:hover {
+                text-decoration: underline;
+            }
+
+            .loginWrapper form .button input{
+                color: #fff;
+                font-size: 20px;
+                font-weight: 500;
+                padding-left: 0px;
+                background: #5DADE2;
+                border: 1px solid #5DADE2;
+                cursor: pointer;
+            }
+
+            form .button input:hover {
+                background: #2874A6;
+            }
+            .loginWrapper form .registerLink{
+                text-align: center;
+                margin-top: 20px;
+                font-size: 17px;
+            }
+
+            .loginWrapper form .registerLink a {
+                color: #5DADE2;
+                text-decoration: none;
+            }
+
+            .loginWrapper form .registerLink a:hover {
+                text-decoration: underline;
+            }
+
+            .loginWrapper span {
+                position: absolute;
+                bottom: 12px;
+                right: 17px;
+                font-size: 16px;
+                color: red;
+            }
+
+            ::-webkit-scrollbar {
+                width: 5px;
+            }
+            ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            }
+            
+            ::-webkit-scrollbar-thumb {
+            background: #fff; 
+            }
+            
+            ::-webkit-scrollbar-thumb:hover {
+            background: #cacfd2 ; 
+            }
+        </style>
+
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous">
+        </script>
+    </head>
+
+    <body>
+        <div id = "error"></div>
+        <div class="header">
+            <img src="images/vitlogo.png" id = "logo">
+        </div>
+        <div class="login">
+            <div class="loginWrapper">
+                <div class="loginTitle">LOGIN</div>
+                <form action="eventreg.html" method="get" onkeyup="validateform()">
+                    <div class="row">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Email" id = "username" required>
+                        <span id = "usernameError"></span>
+                    </div>
+                    <div class="row">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="password" id = "password" required>
+                        <span id = "passwordError"></span>
+                    </div>
+                    <div class="row button">
+                        <a href="eventreg.html">
+                            <input type="submit" value="Login">
+                            <span id = "sumbitError"></span>
+                        </a>
+                    </div>
+                    <div class="pass"><a href="#">Forgot LoginID?</a></div>
+                    <div class="pass"><a href="#">Forgot Password?</a></div>
+                </form>
+            </div>
+        </div>
+
+    <script>
+        var usernameError = document.getElementById("usernameError");
+        var passwordError = document.getElementById("passwordError");
+        var sumbitError = document.getElementById("submitError");
+
+        function validateform() {
+            var username = document.getElementById("username").value;
+            if (username.length == "") {
+                usernameError.innerHTML = "!";
+                return false;
+            }
+            if (!username.match(/[a-z]+[\.][a-z]+@vitstudent.ac.in/)) {
+                usernameError.innerHTML = "!";
+                return false;
+            }
+            usernameError.innerHTML = "";
+
+            var password = document.getElementById("password").value;
+            Array.prototype.contains = function(v){
+                for(var i=0; i< this.length; i++){
+                    if(this[i] === v) return true;
+                }
+                return false;
+            }
+            Array.prototype.unique = function(){
+                var arr = [];
+                for(var i=0; i< this.length; i++){
+                    if(!arr.contains(this[i])){
+                        arr.push(this[i]);
+                    }
+                }
+                return arr;
+            };
+
+            if (password.length == 0) {
+                passwordError.innerHTML = "!";
+                return false;
+            }
+            if (!password.match(/(?=(.*[A-Z]))(?=(.*[a-z]))(?=(.*\d))(?!.*\s).{10,100}/i) || !password.match(/(?=(.*[A-Z]))(?=(.*[a-z]))(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]))(?!.*\s).{10,100}/i)
+                || !password.match(/(?=(.*[A-Z]))(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]))(?=(.*\d))(?!.*\s).{10,100}/i) 
+                || !password.match(/(?=(.*[a-z]))(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]))(?=(.*\d))(?!.*\s).{10,100}/i) &&
+                (password.split("").unique().length >= 5)) {
+                passwordError.innerHTML = "!";
+                return false;
+            }
+            passwordError.innerHTML = "";
+            
+            return true;
+        }
+    </script>
+    </body>
+</html>

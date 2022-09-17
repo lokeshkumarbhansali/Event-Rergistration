@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Registration Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            body {
+                background:  #D0D3D4;
+                overflow: hidden;
+            }
+
+            .header {
+                background: rgb(2,0,36);
+                background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(12,12,123,1) 0%, rgba(0,212,255,1) 50%, rgba(12,12,123,1) 100%);
+                width: 1550px;
+                height: 100px;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            #logo {
+                width: 280px;
+                height: 80px;
+                margin: 10px 10px ;
+            }
+
+            .regWrapper {
+                max-width: 500px;
+                width: 100%;
+                background: #fff;
+                margin: 20px auto;
+                padding: 30px;
+                box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125);
+            }
+
+            .regWrapper .regTitle {
+                font-size: 24px;
+                font-weight: 700;
+                margin-bottom: 25px;
+                color: #5DADE2;
+                text-transform: uppercase;
+                text-align: center;
+            }
+
+            .regWrapper .regForm {
+                width: 100%;
+            }
+
+            .regWrapper .regForm .regInputField,
+            .regWrapper .regForm .regInputTerms { 
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center; 
+            }
+
+            .regWrapper .regForm .regInputField label, 
+            .regWrapper .regForm .regInputTerms label {
+                width: 200px;
+                color: #757575;
+                margin-right: 10px;
+                font-size: 14px;
+            }
+
+            .regWrapper .regForm .regInputField .input,
+            .regWrapper .regForm .regInputTerms .input {
+                width: 100%;
+                outline: none;
+                border: 1px solid #d5dbd9;
+                font-size: 15px;
+                padding: 8px 10px;
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
+
+            .regWrapper .regForm .regInputField .regevents {
+                position: relative;
+                width: 100%;
+                height: 37px;
+            }
+
+            .regWrapper .regForm .regInputField .regevents select {
+                -webkit-appearance: none;
+                appearance: none;
+                border: 1px solid #5DADE2;
+                width: 100%;
+                height: 100%;
+                padding: 8px 10px;
+                border-radius: 3px;
+                outline: none;
+            }
+
+            .regWrapper .regForm .regInputField .regevents:before {
+                content: "";
+                position: absolute;
+                top: 12px;
+                right: 10px;
+                border: 8px solid;
+                border-color:  #d5dbd9 transparent transparent transparent;
+                pointer-events: none;
+            }
+
+            .regWrapper .regForm .regInputField .input:focus,
+            .regWrapper .regForm .regInputField select:focus {
+                border: 1px solid #5DADE2;
+            }
+
+            .regWrapper .regForm .regInputField p {
+                font-size: 14px;
+                color: #757575;
+            }
+
+            .regWrapper .regForm .regInputTerms .checkTerms {
+                width: 15px;
+                height: 15px;
+                position: relative;
+                display: block;
+                cursor: pointer;
+            }
+
+            .regWrapper .regForm .regInputTerms .checkTerms input[type="checkbox"] {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }
+
+            .regWrapper .regForm .regInputTerms .checkTerms .checkmark {
+                width: 15px;
+                height: 15px;
+                border: 1px solid #5DADE2;
+                display: block;
+                position: relative;
+            }
+
+            .regWrapper .regForm .regInputTerms .checkTerms .checkmark:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 5px;
+                height: 2px;
+                border: 2px solid;
+                border-color: transparent transparent transparent transparent;
+                transform: rotate(-45deg);
+                display: none;
+            }
+
+            .regWrapper .regForm .regInputTerms .checkTerms input[type="checkbox"]:checked ~ .checkmark {
+                background: #5DADE2;
+
+            }
+
+            .regWrapper .regForm .regInputTerms .checkTerms input[type="checkbox"]:checked ~ 
+            .checkmark:before {
+                display: block;
+            }
+
+            .regWrapper .regForm .regInputField .regButton {
+                width: 100%;
+                margin-top: 10px;
+                padding: 8px 10px;
+                font-size: 15px;
+                border: 0;
+                background: #5DADE2;
+                color: #fff;
+                cursor: pointer;
+                border-radius: 3px;
+            }
+
+            .regForm .regInputField .regButton:hover {
+                background: #2874A6;
+            }
+
+            span {
+                color: red;
+            }
+
+            ::-webkit-scrollbar {
+                width: 5px;
+            }
+            ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            }
+            
+            ::-webkit-scrollbar-thumb {
+            background: #fff; 
+            }
+            
+            ::-webkit-scrollbar-thumb:hover {
+            background: #cacfd2 ; 
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            @media (max-width: 420px) {
+                .regWrapper .regForm .regInputField {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                .regWrapper .regForm .regInputField label {
+                    margin-bottom: 5px;
+                }
+                .regWrapper .regForm .regInputTerms {
+                    flex-direction: row;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <img src="images/vitlogo.png" id = "logo">
+        </div>
+        <form action="success.html" method="get" onclick="validateform()">
+            <div class="regWrapper">
+                <div class="regTitle">Event Registration</div>
+                <div class="regForm">
+                    <div class="regInputField">
+                        <label for = "events">Event</label>
+                        <div class="regevents">
+                            <select id = "events" name = "events" required>
+                                <option value="default"></option>
+                                <option value="Veritas">Veritas</option>
+                                <option value="Syntaxathon">Syntaxathon</option>
+                                <option value="Pitchers">Pitchers</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="regInputField">
+                        <label>Name</label>
+                        <input type="text" class="input" required>
+                    </div>
+                    <div class="regInputField">
+                        <label>Email ID</label>
+                        <input type="text" class="input" id = "email" required>
+                        <span id = "emailError"></span>
+                    </div>
+                    <div class="regInputField">
+                        <label>Mobile Number</label>
+                        <input type="text" class="input" id = "contact" required>
+                        <span id = "contactError"></span>
+                    </div>
+                    <div class="regInputField">
+                        <label>Zip code</label>
+                        <input type="text" class="input" id = "zip" required>
+                        <span id = "zipError"></span>
+                    </div>
+                    <div class="regInputField">
+                        <label>Password</label>
+                        <input type="password" class="input" id = "password" required>
+                        <span id = "passwordError"></span>
+                    </div>
+                    <a href="success.html" class="regInputField">
+                        <input type="submit" value="Register" class="regButton">
+                    </a>
+                </div>
+            </div>
+        </form>
+
+        <script>
+            var emailError = document.getElementById("emailError");
+            var contactError = document.getElementById("contactError");
+            var zipError = document.getElementById("zipError");
+            var passwordError = document.getElementById("passwordError");
+            var sumbitError = document.getElementById("submitError");
+    
+            function validateform() {
+            var email = document.getElementById("email").value;
+            if (email.length == "") {
+                emailError.innerHTML = "!";
+                return false;
+            }
+            if (!email.match(/[a-z]+[\.][a-z]+@vitstudent.ac.in/)) {
+                emailError.innerHTML = "!";
+                return false;
+            }
+            emailError.innerHTML = "";
+
+            var contact = document.getElementById("contact").value;
+            if(contact.length == "") {
+                contactError.innerHTML = "!";
+                return false;
+            }
+            if (!contact.match(/\d{10}/)) {
+                contactError.innerHTML = "!";
+                return false;
+            }
+            contactError.innerHTML = "";
+
+            var zip = document.getElementById("zip").value;
+            if (zip.length == "") {
+                zipError.innerHTML = "!";
+                return false;
+            }
+            if (!zip.match(/.{5}/)) {
+                zipError.innerHTML = "!";
+                return false;
+            }
+            zipError.innerHTML = "";
+            
+            var password = document.getElementById("password").value;
+            Array.prototype.contains = function(v){
+                for(var i=0; i< this.length; i++){
+                    if(this[i] === v) return true;
+                }
+                return false;
+            }
+            Array.prototype.unique = function(){
+                var arr = [];
+                for(var i=0; i< this.length; i++){
+                    if(!arr.contains(this[i])){
+                        arr.push(this[i]);
+                    }
+                }
+                return arr;
+            };
+            if (password.length == 0) {
+                passwordError.innerHTML = "!";
+                return false;
+            }
+            if (!password.match(/(?=(.*[A-Z]))(?=(.*[a-z]))(?=(.*\d))(?!.*\s).{10,100}/i) || !password.match(/(?=(.*[A-Z]))(?=(.*[a-z]))(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]))(?!.*\s).{10,100}/i)
+                || !password.match(/(?=(.*[A-Z]))(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]))(?=(.*\d))(?!.*\s).{10,100}/i) 
+                || !password.match(/(?=(.*[a-z]))(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]))(?=(.*\d))(?!.*\s).{10,100}/i) &&
+                (password.split("").unique().length >= 5)) {
+                passwordError.innerHTML = "!";
+                return false;
+            }
+            passwordError.innerHTML = "";
+            
+            return true;
+            }
+        </script>
+    </body>
+</html>
